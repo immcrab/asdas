@@ -1,0 +1,82 @@
+{
+  "entities": {
+    "User": {
+      "title": "User Profile",
+      "description": "Represents a creator profile, including custom theme settings, view metrics, storage usage, and ban status.",
+      "type": "object",
+      "properties": {
+        "id": { "type": "string", "description": "The Firebase Auth unique user identifier (UID)" },
+        "username": { "type": "string", "description": "The unique creator username claimed by the user" },
+        "name": { "type": "string", "description": "The creator's display name" },
+        "email": { "type": "string", "description": "The creator's verified email address" },
+        "avatarUrl": { "type": "string", "description": "The URL of the creator's avatar image" },
+        "provider": { "type": "string", "description": "Auth provider used, e.g. google, discord, or email" },
+        "views": { "type": "integer", "description": "Total profile views received by the creator" },
+        "flagCount": { "type": "integer", "description": "Total suspension/flag count. Max 3 before automatic ban" },
+        "flaggedAt": { "type": "string", "description": "ISO timestamp indicating when the user was flagged/suspended" },
+        "banned": { "type": "boolean", "description": "Flag indicating if the user is permanently banned" },
+        "bio": { "type": "string", "description": "A short bio shown on the creator profile" },
+        "themeId": { "type": "string", "description": "ID of the visual theme template used for the profile page" },
+        "backgroundMusicUrl": { "type": "string", "description": "URL to background music audio file for the profile page" },
+        "discordUrl": { "type": "string", "description": "Optional link to the creator's Discord server or profile" },
+        "twitterUrl": { "type": "string", "description": "Optional link to the creator's Twitter/X profile" },
+        "instagramUrl": { "type": "string", "description": "Optional link to the creator's Instagram profile" },
+        "githubUrl": { "type": "string", "description": "Optional link to the creator's GitHub profile" },
+        "storageUsed": { "type": "integer", "description": "Total storage bytes consumed by the creator's uploads. Max 3GB" },
+        "createdAt": { "type": "string", "description": "ISO timestamp when the account was registered" }
+      },
+      "required": ["id", "name", "email"]
+    },
+    "FileRecord": {
+      "title": "Shared File",
+      "description": "Represents a file uploaded by a creator, including visibility, metrics, like counts, and storage locations.",
+      "type": "object",
+      "properties": {
+        "id": { "type": "string", "description": "Unique file identifier" },
+        "name": { "type": "string", "description": "The original name of the file" },
+        "size": { "type": "integer", "description": "Size of the file in bytes" },
+        "type": { "type": "string", "description": "The category of the file: audio, image, video, 3d, or other" },
+        "isPublic": { "type": "boolean", "description": "Whether the file is visible on the public feed and creator page" },
+        "fileUrl": { "type": "string", "description": "The public storage download URL of the file" },
+        "storagePath": { "type": "string", "description": "The reference path inside Firebase Storage" },
+        "uploaderUid": { "type": "string", "description": "UID of the creator who uploaded the file" },
+        "uploaderUsername": { "type": "string", "description": "Username of the creator who uploaded the file" },
+        "downloads": { "type": "integer", "description": "Number of downloads this file has received" },
+        "likesCount": { "type": "integer", "description": "Total number of likes this file has received" },
+        "reportsCount": { "type": "integer", "description": "Total reports submitted for this file" },
+        "reportedBy": { "type": "array", "description": "List of user UIDs who have reported this file" },
+        "likedBy": { "type": "array", "description": "List of user UIDs who have liked this file" },
+        "createdAt": { "type": "string", "description": "ISO timestamp when the file was uploaded" }
+      },
+      "required": ["id", "name", "size", "type", "uploaderUid", "uploaderUsername", "fileUrl"]
+    },
+    "Template": {
+      "title": "Profile Template",
+      "description": "Represents custom layout templates created and shared by users.",
+      "type": "object",
+      "properties": {
+        "id": { "type": "string", "description": "Unique template identifier" },
+        "name": { "type": "string", "description": "Name of the shared template" },
+        "themeId": { "type": "string", "description": "Visual style of the template" },
+        "bgColor": { "type": "string", "description": "Primary background color of the template" },
+        "createdBy": { "type": "string", "description": "Name or UID of the creator who posted the template" },
+        "createdAt": { "type": "string", "description": "ISO timestamp when the template was posted" }
+      },
+      "required": ["id", "name", "themeId", "bgColor", "createdBy"]
+    }
+  },
+  "firestore": {
+    "/users/{userId}": {
+      "schema": "User",
+      "description": "The collection storing all creator profile records, mapped by user UID"
+    },
+    "/files/{fileId}": {
+      "schema": "FileRecord",
+      "description": "The collection storing metadata for all uploaded files, mapped by file ID"
+    },
+    "/templates/{templateId}": {
+      "schema": "Template",
+      "description": "Shared page templates posted by community members"
+    }
+  }
+}

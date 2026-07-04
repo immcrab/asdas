@@ -1,0 +1,6 @@
+{
+  "name": "goshare.lol",
+  "description": "A YouTube-like creator file sharing portal styled with custom themes, automatic policy filters, storage indicators, and interactive asset previews.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
