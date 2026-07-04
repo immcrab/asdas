@@ -42,7 +42,6 @@ export const Dashboard: React.FC<DashboardProps> = ({ user, onUserUpdate, onNavi
   const [bioInput, setBioInput] = useState(user.bio || '');
   const [themeIdInput, setThemeIdInput] = useState(user.themeId || 'solid');
   const [musicUrlInput, setMusicUrlInput] = useState(user.backgroundMusicUrl || '');
-  const [discordInput, setDiscordInput] = useState(user.discordUrl || '');
   const [twitterInput, setTwitterInput] = useState(user.twitterUrl || '');
   const [instagramInput, setInstagramInput] = useState(user.instagramUrl || '');
   const [githubInput, setGithubInput] = useState(user.githubUrl || '');
@@ -163,7 +162,6 @@ export const Dashboard: React.FC<DashboardProps> = ({ user, onUserUpdate, onNavi
         bio: bioInput.trim(),
         themeId: themeIdInput,
         backgroundMusicUrl: musicUrlInput.trim(),
-        discordUrl: discordInput.trim(),
         twitterUrl: twitterInput.trim(),
         instagramUrl: instagramInput.trim(),
         githubUrl: githubInput.trim(),
@@ -542,13 +540,6 @@ export const Dashboard: React.FC<DashboardProps> = ({ user, onUserUpdate, onNavi
                 <span className="block text-[10px] font-bold text-slate-400 uppercase tracking-wider font-mono">Social Networks</span>
                 
                 <div className="grid grid-cols-2 gap-2.5">
-                  <input
-                    type="url"
-                    placeholder="Discord link"
-                    value={discordInput}
-                    onChange={(e) => setDiscordInput(e.target.value)}
-                    className="bg-slate-50 border border-slate-200 rounded-xl px-3 py-2 text-xs text-slate-800 outline-none focus:border-accent font-sans"
-                  />
                   <input
                     type="url"
                     placeholder="Twitter link"

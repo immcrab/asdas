@@ -22,7 +22,7 @@ export const Privacy: React.FC<LegalPageProps> = ({ onNavigate }) => {
           <h2 className="text-slate-800 font-bold text-lg mb-2">1. Information We Collect</h2>
           <ul className="list-disc pl-5 space-y-2">
             <li>
-              <strong>Account Information:</strong> When you connect via Google or Discord OAuth, we obtain your verified email address, full name, and avatar URL to link your created uploads to your account.
+              <strong>Account Information:</strong> When you connect via Google OAuth, we obtain your verified email address, full name, and avatar URL to link your created uploads to your account.
             </li>
             <li>
               <strong>Uploaded Files:</strong> We store the physical files you upload up to 100MB on our servers, along with metadata such as filenames, file sizes, and visibility settings (public or private).

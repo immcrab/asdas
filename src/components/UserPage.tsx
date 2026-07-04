@@ -380,17 +380,6 @@ export const UserPage: React.FC<UserPageProps> = ({ username }) => {
 
             {/* Social Link Platforms */}
             <div className="flex flex-row md:flex-col gap-3 justify-center">
-              {creator?.discordUrl && (
-                <a 
-                  href={creator.discordUrl} 
-                  target="_blank" 
-                  rel="noopener noreferrer" 
-                  className="p-2.5 rounded-xl border border-slate-200 bg-white/5 hover:bg-slate-100/10 hover:scale-105 transition-all text-indigo-500 font-semibold text-xs flex items-center justify-center"
-                  title="Discord"
-                >
-                  Discord
-                </a>
-              )}
               {creator?.twitterUrl && (
                 <a 
                   href={creator.twitterUrl} 

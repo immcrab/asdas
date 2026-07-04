@@ -91,7 +91,7 @@ export default function App() {
           <div className="flex-grow flex flex-col items-center justify-center p-6 text-center">
             <h2 className="text-2xl font-bold text-slate-800 mb-2">Access Denied</h2>
             <p className="text-slate-500 text-sm max-w-sm mb-6">
-              You must sign in with Discord or Google before you can access the creator dashboard and upload files.
+              You must sign in with Google before you can access the creator dashboard and upload files.
             </p>
             <button
               onClick={() => setShowLoginModal(true)}

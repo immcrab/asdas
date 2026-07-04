@@ -2,7 +2,7 @@ export interface User {
   id: string;
   username: string | null;
   email: string;
-  provider: 'google' | 'discord' | 'sandbox' | 'email';
+  provider: 'google' | 'sandbox' | 'email';
   name: string;
   avatarUrl: string | null;
   createdAt: string;
@@ -15,7 +15,6 @@ export interface User {
   bio?: string | null;
   themeId?: string | null; // 'solid' | 'glass' | 'glow' | 'retro'
   backgroundMusicUrl?: string | null;
-  discordUrl?: string | null;
   twitterUrl?: string | null;
   instagramUrl?: string | null;
   githubUrl?: string | null;
